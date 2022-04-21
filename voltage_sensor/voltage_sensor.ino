@@ -6,9 +6,10 @@ void setup() {
 int runtime = 0;
 int last_runtime = 0;
 bool isRunning = false;
-int max_voltage = 3;
-int on_voltage = 2;
-int threshold = 1024/max_voltage*on_voltage;
+int max_voltage = 2;
+int on_voltage = 1;
+//int threshold = 1024/max_voltage*on_voltage;
+int threshold = 570;
 void loop() {
   // put your main code here, to run repeatedly:
   delay(1000);
@@ -19,11 +20,8 @@ void loop() {
       if (runtime !=0)
         last_runtime = runtime;
       runtime = 0;
-      
       }
-  Serial.print("Runtime: ");
-  Serial.println(runtime);
-  Serial.print("Last Runtime: ");
+  Serial.print(runtime);
+  Serial.print(" ");
   Serial.println(last_runtime);
-  Serial.println(analogRead(A1));
 }
